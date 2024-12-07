@@ -4,7 +4,9 @@
   "description": "broadcasting chat app",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -b && node ./dist/index.js"
+    "dev": "tsc -b && node ./dist/index.js",
+    "build": "tsc -b",
+    "start": "node dist/index.js"
   },
   "author": "",
   "license": "ISC",
