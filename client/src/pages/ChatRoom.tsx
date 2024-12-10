@@ -44,7 +44,7 @@ export default function ChatRoom() {
 
   useEffect(() => {
     // Step 1 & 2: Send http request to server and get 101 response (Handshaking)
-    const socket = new WebSocket("ws://localhost:5000");
+    const socket = new WebSocket("wss://broadcast-backend.onrender.com");
 
     // Send string message with join_room and roomCode to the server for joining the room
     socket.onopen = () => {

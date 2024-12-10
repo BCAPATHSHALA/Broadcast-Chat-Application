@@ -23,7 +23,7 @@ const schema = z.object({
 });
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://broadcast-backend.onrender.com/api",
 });
 
 export default function Home() {
