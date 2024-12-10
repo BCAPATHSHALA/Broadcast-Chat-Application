@@ -63,27 +63,27 @@ export default function ChatRoom() {
     // Listen for messages from the server
     socket.onmessage = (event) => {
       const { type, payload } = JSON.parse(event.data);
-      console.log(type, payload);
+      // console.log(type, payload);
 
       switch (type) {
         case "room_joined":
-          console.log("ROOM-JOINED DATA:", payload);
+          // console.log("ROOM-JOINED DATA:", payload);
           setMessages(payload.messages);
           break;
         case "user_joined":
-          console.log("USER-JOINED DATA:", payload);
+          // console.log("USER-JOINED DATA:", payload);
           setUserCount(payload.userCount);
           break;
         case "new_message":
-          console.log("NEW-MESSAGE DATA:", payload);
+          // console.log("NEW-MESSAGE DATA:", payload);
           setMessages((prev) => [...prev, payload]);
           break;
         case "user_left":
-          console.log("USER-LEFT DATA:", payload);
+          // console.log("USER-LEFT DATA:", payload);
           setUserCount(payload.userCount);
           break;
         case "error":
-          console.log("ERROR DATA:", payload);
+          // console.log("ERROR DATA:", payload);
           toast({
             title: "Error",
             description: payload.message,

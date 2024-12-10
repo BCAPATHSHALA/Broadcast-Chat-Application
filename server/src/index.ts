@@ -21,7 +21,7 @@ wss.on("connection", (ws: WebSocket) => {
   ws.on("message", (message: RawData) => {
     try {
       const { type, payload } = JSON.parse(message.toString());
-      console.log("type:", type, "payload:", payload);
+      // console.log("type:", type, "payload:", payload);
 
       switch (type) {
         case "create_room": {
@@ -78,7 +78,7 @@ wss.on("connection", (ws: WebSocket) => {
         case "send_message": {
           const roomCode = (ws as any).roomCode; // Used the roomCode attached to the ws when the user joined the room
           const chatRoom = rooms.get(roomCode);
-          console.log("RoomCode: ", roomCode, " ChatRoom:", chatRoom);
+          // console.log("RoomCode: ", roomCode, " ChatRoom:", chatRoom);
           /*
               type: send_message payload: { sender: 'User MJ', content: 'cxcx' }
               RoomCode:  OZJRG0  ChatRoom: {
@@ -175,7 +175,7 @@ function broadcastToRoom(roomCode: string, message: any) {
 app.post("/api/create-room", (req, res) => {
   const roomCode = generateRoomCode();
   const result = rooms.set(roomCode, { users: new Set(), messages: [] });
-  console.log(result);
+  // console.log(result);
   res.json({ roomCode });
 });
 
