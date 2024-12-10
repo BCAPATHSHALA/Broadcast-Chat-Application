@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import http from "http";
 import { WebSocketServer, WebSocket, RawData } from "ws";
 import cors from "cors";
@@ -172,7 +172,7 @@ function broadcastToRoom(roomCode: string, message: any) {
 }
 
 // Route for creating the chat room and store it in the rooms map
-app.post("/api/create-room", (req, res) => {
+app.post("/api/create-room", (_req: Request, res: Response) => {
   const roomCode = generateRoomCode();
   const result = rooms.set(roomCode, { users: new Set(), messages: [] });
   // console.log(result);
